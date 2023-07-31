@@ -100,3 +100,24 @@ export const logout = (req, res) => {
         message: "Logout Successfully"
     })
 }
+
+
+//all_Users
+
+export const getAllUsers = async (req, res) => {
+    try {
+        const users = await User.find({});
+
+        res.status(200).json({
+            success: true,
+            users
+        })
+
+    } catch (error) {
+        console.log('error:', error)
+        res.status(404).json({
+            success: false,
+            message: "Something went wrong"
+        })
+    }
+}
