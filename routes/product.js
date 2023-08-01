@@ -1,5 +1,5 @@
 import express from "express";
-import { addProduct, deleteProduct, myAllProduct,  updateProduct } from "../controllers/product.js";
+import { addProduct, deleteProduct, getPresentProduct, myAllProduct,  updateProduct } from "../controllers/product.js";
 import { isAuthenticated } from "../middlewares/auth.js";
 
 const router=express.Router();
@@ -18,7 +18,9 @@ router.route("/:id").put(isAuthenticated,updateProduct).delete(isAuthenticated,d
 
 
 
+//get_ALL_Avalaible products
 
+router.get("/products",getPresentProduct)
 
 
 

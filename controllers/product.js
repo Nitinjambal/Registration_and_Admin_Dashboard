@@ -103,3 +103,20 @@ export const deleteProduct = async (req, res) => {
 
     }
 }
+
+
+//ALl_present_Products
+
+export const getPresentProduct = async (req, res) => {
+    try {
+        const products = await Product.find({})
+        res.status(200).json({
+            success: true,
+            products
+        })
+
+    } catch (error) {
+        console.log('error:', error)
+
+    }
+}
