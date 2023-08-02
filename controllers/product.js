@@ -65,7 +65,7 @@ export const updateProduct = async (req, res) => {
         }
         const { title, description, image, price } = req.body
 
-        await Product.updateOne({ title, description, image, price })
+        await Product.updateOne({ _id: id }, { title: title, description: description, image: image, price: price })
         res.status(200).json({
             success: true,
             message: "Product Got Updated Successfully",
