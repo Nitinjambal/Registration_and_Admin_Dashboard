@@ -9,8 +9,7 @@ const router=express.Router();
 router.get("/myAllProducts",isAuthenticated,myAllProduct)
 
 //Add_Product
-router.post("/newProduct",isAuthenticated
-,addProduct)
+router.post("/newProduct",isAuthenticated,addProduct)
 
 
 //Update_Product & Delete_Product

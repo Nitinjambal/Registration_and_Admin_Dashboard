@@ -83,6 +83,7 @@ export const deleteProduct = async (req, res) => {
     try {
 
         const { id } = req.params
+        console.log(id)
         const product = await Product.findById(id);
 
         if (!product) {
@@ -91,8 +92,7 @@ export const deleteProduct = async (req, res) => {
                 message: "Product doesn't exist",
             })
         }
-
-        await Product.deleteOne()
+        await Product.deleteOne({ _id: id }) //here id is required to give
         res.status(200).json({
             success: true,
             message: "Product Got deleted Successfully",
